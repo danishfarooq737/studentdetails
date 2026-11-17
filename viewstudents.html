@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudentHub – Student Directory</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="students" class="section">
+  <div class="container">
+    <h2 class="title">All Students</h2>
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search by name, roll number or department…" aria-label="Search students">
+      <select id="deptFilter" aria-label="Filter by department"><option value="">All Departments</option></select>
+      <select id="sort" aria-label="Sort students">
+        <option value="az">Name: A → Z</option><option value="za">Name: Z → A</option><option value="new">Newest first</option>
+      </select>
+    </div>
+    <div id="grid" class="grid"></div>
+    <div id="empty" class="empty" hidden><div class="empty-icon">🔍</div><h3>No Students Found</h3><p id="emptyMsg"></p></div>
+  </div>
+</section>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>

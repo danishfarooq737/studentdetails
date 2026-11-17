@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudentHub – Student Directory</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a href="#home" class="logo"><span class="logo-mark">🎓</span>StudentHub</a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav id="menu" class="menu" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="addstudent.html" target=" ">Add Students</a>
+      <a href="viewstudents.html" target=" ">View All Students</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="pill">Student Directory Platform</span>
+      <h1>Discover Our Student Community</h1>
+      <p>Explore our growing community of talented students. Discover student profiles, academic information, and achievements.</p>
+      <div class="btn-row">
+        <a href="#students" class="btn primary">Explore Students</a>
+        <a href="#add" class="btn outline" id="heroAdd">Add New Student</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 320 300" role="img">
+        <circle cx="160" cy="150" r="130" fill="#dbeafe"/>
+        <circle cx="160" cy="150" r="90" fill="#bfdbfe"/>
+        <polygon points="160,70 270,115 160,160 50,115" fill="#0f2a5c"/>
+        <path d="M95 140v45c0 18 29 32 65 32s65-14 65-32v-45l-65 27z" fill="#1e40af"/>
+        <line x1="255" y1="122" x2="255" y2="190" stroke="#3b82f6" stroke-width="5"/>
+        <circle cx="255" cy="196" r="9" fill="#3b82f6"/>
+        <rect x="40" y="215" width="90" height="14" rx="3" fill="#3b82f6"/>
+        <rect x="48" y="229" width="76" height="14" rx="3" fill="#0f2a5c"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="container stats" aria-label="Statistics">
+  <div class="stat"><strong id="statTotal">0</strong><span>Total Registered Students</span></div>
+  <div class="stat"><strong id="statDepts">0</strong><span>Total Departments</span></div>
+  <div class="stat"><strong id="statRecent">0</strong><span>Recently Added (7 days)</span></div>
+</section>
+
+<section id="students" class="section">
+  <div class="container">
+    <h2 class="title">All Students</h2>
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search by name, roll number or department…" aria-label="Search students">
+      <select id="deptFilter" aria-label="Filter by department"><option value="">All Departments</option></select>
+      <select id="sort" aria-label="Sort students">
+        <option value="az">Name: A → Z</option><option value="za">Name: Z → A</option><option value="new">Newest first</option>
+      </select>
+    </div>
+    <div id="grid" class="grid"></div>
+    <div id="empty" class="empty" hidden><div class="empty-icon">🔍</div><h3>No Students Found</h3><p id="emptyMsg"></p></div>
+  </div>
+</section>
+
+<section id="add" class="section alt">
+  <div class="container narrow">
+    <h2 class="title" id="formTitle">Add New Student</h2>
+    <form id="form" class="form" novalidate>
+      <div class="photo-box">
+        <img id="preview" class="avatar-lg" alt="Profile preview">
+        <div>
+          <label for="photo">Student Profile Picture <b>*</b></label>
+          <input type="file" id="photo" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+          <small>JPG, JPEG, PNG or WebP · max 2 MB</small>
+          <small class="err" id="err-photo"></small>
+        </div>
+      </div>
+      <div class="fields">
+        <div class="field"><label for="name">Full Name <b>*</b></label><input id="name" maxlength="80"><small class="err" id="err-name"></small></div>
+        <div class="field"><label for="father">Father Name</label><input id="father" maxlength="80"></div>
+        <div class="field"><label for="roll">Roll Number <b>*</b></label><input id="roll" maxlength="30"><small class="err" id="err-roll"></small></div>
+        <div class="field"><label for="email">Email Address</label><input id="email" type="email"><small class="err" id="err-email"></small></div>
+        <div class="field"><label for="phone">Phone Number</label><input id="phone" type="tel"><small class="err" id="err-phone"></small></div>
+        <div class="field"><label for="gender">Gender</label>
+          <select id="gender"><option value="">Select gender</option><option>Male</option><option>Female</option><option>Other</option></select></div>
+        <div class="field"><label for="dob">Date of Birth</label><input id="dob" type="date"><small class="err" id="err-dob"></small></div>
+        <div class="field"><label for="dept">Department / Class</label><input id="dept" list="deptList" maxlength="60"><datalist id="deptList"></datalist></div>
+        <div class="field"><label for="admission">Admission Date</label><input id="admission" type="date"></div>
+        <div class="field full"><label for="address">Address</label><input id="address" maxlength="200"></div>
+        <div class="field full"><label for="intro">Short Student Introduction</label><textarea id="intro" rows="4" maxlength="500"></textarea></div>
+      </div>
+      <div class="btn-row">
+        <button type="submit" class="btn primary" id="submitBtn">Submit Student</button>
+        <button type="button" class="btn outline" id="resetBtn">Reset Form</button>
+        <button type="button" class="btn ghost" id="cancelEdit" hidden>Cancel Edit</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container narrow about">
+    <h2 class="title">About StudentHub</h2>
+    <p>StudentHub is a simple and organized platform designed to showcase student information, academic backgrounds, and individual profiles in one convenient place.</p>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-grid">
+    <div><a href="#home" class="logo light"><span class="logo-mark">🎓</span>StudentHub</a>
+      <p>A modern student directory to organize and showcase student profiles.</p></div>
+    <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#students">All Students</a><a href="#add">Add Student</a><a href="#about">About Us</a></div>
+    <div><h4>Contact</h4><p>📍Localpro1 Shamsabad, RWP</p><p>✉️ Localpro1@studenthub.example</p><p>📞 +92 3415234553</p></div>
+  </div>
+  <div class="copy">© <span id="year"></span> StudentHub. All rights reserved.</div>
+</footer>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="pName">
+    <img id="pImg" class="avatar-xl" alt="">
+    <h2 id="pName"></h2><p class="tag" id="pDept"></p>
+    <dl id="pList" class="details"></dl>
+    <button class="btn primary" id="pBack">Back to Students</button>
+  </div>
+</div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudentHub – Student Directory</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="add" class="section alt">
+  <div class="container narrow">
+    <h2 class="title" id="formTitle">Add New Student</h2>
+    <form id="form" class="form" novalidate>
+      <div class="photo-box">
+        <img id="preview" class="avatar-lg" alt="Profile preview">
+        <div>
+          <label for="photo">Student Profile Picture <b>*</b></label>
+          <input type="file" id="photo" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+          <small>JPG, JPEG, PNG or WebP · max 2 MB</small>
+          <small class="err" id="err-photo"></small>
+        </div>
+      </div>
+      <div class="fields">
+        <div class="field"><label for="name">Full Name <b>*</b></label><input id="name" maxlength="80"><small class="err" id="err-name"></small></div>
+        <div class="field"><label for="father">Father Name</label><input id="father" maxlength="80"></div>
+        <div class="field"><label for="roll">Roll Number <b>*</b></label><input id="roll" maxlength="30"><small class="err" id="err-roll"></small></div>
+        <div class="field"><label for="email">Email Address</label><input id="email" type="email"><small class="err" id="err-email"></small></div>
+        <div class="field"><label for="phone">Phone Number</label><input id="phone" type="tel"><small class="err" id="err-phone"></small></div>
+        <div class="field"><label for="gender">Gender</label>
+          <select id="gender"><option value="">Select gender</option><option>Male</option><option>Female</option><option>Other</option></select></div>
+        <div class="field"><label for="dob">Date of Birth</label><input id="dob" type="date"><small class="err" id="err-dob"></small></div>
+        <div class="field"><label for="dept">Department / Class</label><input id="dept" list="deptList" maxlength="60"><datalist id="deptList"></datalist></div>
+        <div class="field"><label for="admission">Admission Date</label><input id="admission" type="date"></div>
+        <div class="field full"><label for="address">Address</label><input id="address" maxlength="200"></div>
+        <div class="field full"><label for="intro">Short Student Introduction</label><textarea id="intro" rows="4" maxlength="500"></textarea></div>
+      </div>
+      <div class="btn-row">
+        <button type="submit" class="btn primary" id="submitBtn">Submit Student</button>
+        <button type="button" class="btn outline" id="resetBtn">Reset Form</button>
+        <button type="button" class="btn ghost" id="cancelEdit" hidden>Cancel Edit</button>
+      </div>
+    </form>
+  </div>
+</section>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>

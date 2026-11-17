@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudentHub – Student Directory</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="about" class="section">
+  <div class="container narrow about">
+    <h2 class="title">About StudentHub</h2>
+    <p>StudentHub is a simple and organized platform designed to showcase student information, academic backgrounds, and individual profiles in one convenient place.</p>
+  </div>
+
+   <!-- Complaint section -->
+    <div class="complaint" id="complaint">
+      <h3>Have a Complaint?</h3>
+      <p>We value your feedback. Tell us about any problem and we will look into it.</p>
+      <form id="complaintForm" class="form" novalidate>
+        <div class="field"><label for="cName">Your Name <b>*</b></label><input id="cName" maxlength="80"><small class="err" id="err-cName"></small></div>
+        <div class="field"><label for="cEmail">Email Address <b>*</b></label><input id="cEmail" type="email"><small class="err" id="err-cEmail"></small></div>
+        <div class="field"><label for="cType">Complaint Type</label>
+          <select id="cType"><option>General</option><option>Student Information Issue</option><option>Website Problem</option><option>Other</option></select></div>
+        <div class="field"><label for="cMessage">Your Complaint <b>*</b></label><textarea id="cMessage" rows="5" maxlength="600" placeholder="Write your complaint here…"></textarea><small class="err" id="err-cMessage"></small></div>
+        <button type="submit" class="btn primary">Submit Complaint</button>
+      </form>
+    </div>
+  </div>
+</section>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
